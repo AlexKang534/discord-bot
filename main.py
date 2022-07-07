@@ -1,7 +1,9 @@
 import discord
 import os
+from nbahot import posts
 from dotenv import load_dotenv
 load_dotenv()
+
 
 
 client = discord.Client()
@@ -30,5 +32,8 @@ async def on_message(message):
     
     if message.content.startswith("vykas"):
         await message.add_reaction(emoji)
+
+    if message.content.startswith("nba"):
+        await message.channel.send(posts)
 
 client.run(os.getenv('ARKTOKEN'))
